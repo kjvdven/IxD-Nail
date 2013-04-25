@@ -11,6 +11,7 @@
 }
 
 .grid {
+  @include clearfix;
   display: block;
   padding: 0;
   margin: 0 -0.5 * em($grid-gutter);
@@ -22,8 +23,8 @@
 
 .grid-cell {
   width: 100%;
-  @include inline-block;
   @include box-sizing(border-box);
+  float: left;
   margin: 0;
   padding: 0 0.5 * em($grid-gutter);
   vertical-align: top;
