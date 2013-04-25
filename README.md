@@ -2,7 +2,7 @@
 
 ## Concept
 
-Build a wireframing tool for [Hammer for Mac](http://hammerformac.com/)
+Build a responsive wireframing tool for [Hammer for Mac](http://hammerformac.com/)
 
 ## Used Tools
 

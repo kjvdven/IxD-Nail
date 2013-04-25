@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <head>
 
@@ -13,11 +16,12 @@
   <link href="<!-- @path favicon.ico -->" rel="shortcut icon">
   <link href="<!-- @path apple-touch-icon.png -->" rel="apple-touch-icon">
   
-  <title>New Project</title>
+  <title><!-- $sitename | Sitename --> | <!-- $title | Title not set --></title>
   
 </head>
 
-<body>
+<body id="<!-- $page | default -->_page">
+  <div class="wrapper">
 
   <header>
     <!-- @include _nav -->
