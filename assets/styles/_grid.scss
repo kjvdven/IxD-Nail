@@ -1,0 +1,72 @@
+/* convert pixels to ems - defaults to 16px base */
+@function em($px, $base: $grid-font-size) {
+  @return ($px / $base) * 1em;
+}
+
+/* Grid based on https://github.com/necolas/griddle by Nicolas Gallagher (@necolas) */
+.wrapper {
+  margin-left: auto; margin-right: auto;
+  padding-left: em($grid-gutter);
+  padding-right: em($grid-gutter);
+}
+
+.grid {
+  display: block;
+  padding: 0;
+  margin: 0 -0.5 * em($grid-gutter);
+  text-align: left;
+  letter-spacing: -0.31em;
+  word-spacing: -0.43em;
+  text-rendering: optimizespeed;
+}
+
+.grid-cell {
+  width: 100%;
+  @include inline-block;
+  @include box-sizing(border-box);
+  margin: 0;
+  padding: 0 0.5 * em($grid-gutter);
+  vertical-align: top;
+  text-align: left;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-rendering: auto;
+}
+
+img { max-width: 100%; }
+
+/* find width of columns */
+@function fixed($col) {
+  @return $col * em($grid-column + $grid-gutter)
+}
+
+/* create breakpoint label and default to mobile */
+body::before { content: 'mobile'; display: none; }
+
+/* create mq to fit columns */
+@mixin breakpoint($min, $label: false) {
+  @media (min-width: fixed($min) + em($grid-gutter)) {
+    
+    /* create a fixed width centered layout */
+    .wrapper {
+      width: fixed($min) - em($grid-gutter);
+      margin-left: auto; margin-right: auto;
+    }
+    
+    /* create breakpoint label if defined */
+    @if ($label) { body::before { content: $label; } }
+    
+    /* css gradient overlay to help visualize columns */
+    /* Note - this class uses Compass includes */
+    // body::after {
+    //   content: ''; position: fixed; top: 0; bottom: 0; pointer-events: none; left: 50%;
+    //   width: fixed($min) + em($grid-gutter); margin-left: fixed($min) / -2 - (em($grid-gutter)/2);
+    //   @include background(linear-gradient(left, transparent $grid-gutter, transparentize(red, .8) $grid-gutter, transparentize(red, .8) $grid-gutter + $grid-column));
+    //   @include background-size($grid-gutter + $grid-column);
+    // }   
+    
+    /* sass content block variable */
+    @content
+  
+  }
+}

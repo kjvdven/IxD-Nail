@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+        <!-- Hammer reload -->
+          <script>
+            setInterval(function(){
+              try {
+                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
+                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
+                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
+                ws.onmessage = function(){
+                  var links = document.getElementsByTagName('link'); 
+                    for (var i = 0; i < links.length;i++) { 
+                    var link = links[i]; 
+                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) { 
+                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,''); 
+                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
+                    }
+                  }
+                }
+              }catch(e){}
+            }, 1000)
+          </script>
+        <!-- /Hammer reload -->
+      
+  
+  <link rel='stylesheet' href='assets/styles/normalize.css'>
+<link rel='stylesheet' href='assets/styles/application.css'>
+  
+  <link href="assets/favicon.ico" rel="shortcut icon">
+  <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <title>New Project</title>
+  
+</head>
+
+<body>
+
+  <header>
+    <nav>
+  <ul>
+    <li></li>
+  </ul>
+</nav>
+  </header>
+
+<div class="wrapper">
+  <div class="grid">
+    
+    <div class="grid-cell main">
+      <h2>A Big Piece of Garbage</h2>
+      <p>You mean while I'm sleeping in it? And remember, don't do anything that affects anything, unless it turns out you were supposed to, in which case, for the love of God, don't not do it! Bender, you risked your life to save me!</p>
+
+      <img class="responsive-image" data-mobile="https://s3.amazonaws.com/lesjames-media/breakpoint/mobile.gif" data-tablet="https://s3.amazonaws.com/lesjames-media/breakpoint/tablet.gif" data-desktop="https://s3.amazonaws.com/lesjames-media/breakpoint/desktop.gif" />
+
+      <h3>Leela's Homeworld</h3>
+      <p>No! The cat shelter's on to me. Good news, everyone! I've taught the toaster to feel love! Would you censor the Venus de Venus just because you can see her spewers? Oh, I don't have time for this.  I have to go and buy a single piece of fruit with a coupon and then return it, making people wait behind me while I complain.</p>
+    </div>
+    
+    <div class="grid-cell sidebar">
+      <h2>Kif Gets Knocked Up A Notch</h2>
+      <p>Our love isn't any different from yours, except it's hotter, because I'm involved. Hey! I'm a porno-dealing monster, what do I care what you think? Oh, I always feared he might run off like this. Why, why, why didn't I break his legs? I barely knew Philip, but as a clergyman I have no problem telling his most intimate friends all about him. Throw her in the brig.</p>
+    </div>
+  
+  </div>
+</div>
+  
+
+  <script src='assets/javascript/jquery-1.8.3.min.js'></script>
+<script src='assets/javascript/application.js'></script>
+
+</body>
+</html>
