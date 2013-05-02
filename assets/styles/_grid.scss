@@ -53,6 +53,18 @@ body::before { content: 'mobile'; display: none; }
       width: fixed($min) - em($grid-gutter);
       margin-left: auto; margin-right: auto;
     }
+
+    /* Render columns */
+    @for $i from 1 through $min {
+      @if ($min % $i) == 0 and $min != $i {
+        .col#{$i} {
+          $base_span: $min/ $i; 
+          @for $j from 1 through $i {
+            .span-#{$j} { width: fixed($j * $base_span); }
+          }
+        }
+      }
+    }
     
     /* create breakpoint label if defined */
     @if ($label) { body::before { content: $label; } }
