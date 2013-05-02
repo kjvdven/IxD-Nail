@@ -1,16 +1,20 @@
 // grid
-$grid-font-size: 16px;
 $grid-column: 60px;
 $grid-gutter: 20px;
 
-// font
-$title-size: .9375em;
-$font-family: 'Ubuntu', sans-serif;
+// 10 Shades of grey
+$shade0: #efefef;
+$shade1: darken($shade0, 9%);
+$shade2: darken($shade1, 9%);
+$shade3: darken($shade2, 9%);
+$shade4: darken($shade3, 9%);
+$shade5: darken($shade4, 9%);
+$shade6: darken($shade5, 9%);
+$shade7: darken($shade6, 9%);
+$shade8: darken($shade7, 9%);
+$shade9: darken($shade8, 9%);
 
-// colors
-$white: #fff;
-$text: #777777;
-$active: #f5223b;
-$grey: #bbbbbb;
-$dark_grey: #383838;
-$red: #f5223b;
+// Text
+$font-color: $shade8;
+$font-size: .9375em;
+$font-family: 'Ubuntu', sans-serif;

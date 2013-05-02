@@ -1,5 +1,5 @@
 /* convert pixels to ems - defaults to 16px base */
-@function em($px, $base: $grid-font-size) {
+@function em($px, $base: 16px) {
   @return ($px / $base) * 1em;
 }
 
