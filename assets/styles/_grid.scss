@@ -55,6 +55,8 @@ body::before { content: 'mobile'; display: none; }
     }
 
     /* Render columns */
+    /* @todo Rethink this for breakpoints, adding this class doesn't break well */
+
     @for $i from 1 through $min {
       @if ($min % $i) == 0 and $min != $i {
         .col#{$i} {
