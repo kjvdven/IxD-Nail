@@ -16,21 +16,18 @@
   padding: 0;
   margin: 0 -0.5 * em($grid-gutter);
   text-align: left;
-  letter-spacing: -0.31em;
-  word-spacing: -0.43em;
   text-rendering: optimizespeed;
 }
 
 .grid-cell {
-  width: 100%;
   @include box-sizing(border-box);
+  width: 100%;
+  display: block;
   float: left;
-  margin: 0;
-  padding: 0 0.5 * em($grid-gutter);
+  margin: 0 0.5 * em($grid-gutter);
+  padding: 0;
   vertical-align: top;
   text-align: left;
-  letter-spacing: normal;
-  word-spacing: normal;
   text-rendering: auto;
 }
 
@@ -38,7 +35,7 @@ img { max-width: 100%; }
 
 /* find width of columns */
 @function fixed($col) {
-  @return $col * em($grid-column + $grid-gutter)
+  @return ($col * em($grid-column + $grid-gutter)) - em($grid-gutter)
 }
 
 /* create breakpoint label and default to mobile */
@@ -50,7 +47,7 @@ body::before { content: 'mobile'; display: none; }
     
     /* create a fixed width centered layout */
     .wrapper {
-      width: fixed($min) - em($grid-gutter);
+      width: fixed($min);
       margin-left: auto; margin-right: auto;
     }
 
@@ -75,10 +72,10 @@ body::before { content: 'mobile'; display: none; }
     /* Note - this class uses Compass includes */
     // body::after {
     //   content: ''; position: fixed; top: 0; bottom: 0; pointer-events: none; left: 50%;
-    //   width: fixed($min) + em($grid-gutter); margin-left: fixed($min) / -2 - (em($grid-gutter)/2);
+    //   width: fixed($min) + em($grid-gutter); margin-left: fixed($min) / -2 - (em($grid-gutter));
     //   @include background(linear-gradient(left, transparent $grid-gutter, transparentize(red, .8) $grid-gutter, transparentize(red, .8) $grid-gutter + $grid-column));
     //   @include background-size($grid-gutter + $grid-column);
-    // }   
+    // }    
     
     /* sass content block variable */
     @content
