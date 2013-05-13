@@ -1,6 +1,7 @@
 // grid
 $grid-column: 60px;
 $grid-gutter: 20px;
+$ie-support: 12; // set IE fallback layout to 8 columns
 
 // 10 Shades of grey
 $shade0: #efefef;

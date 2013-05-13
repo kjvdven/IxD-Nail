@@ -79,6 +79,9 @@ body::before { content: 'mobile'; display: none; }
     
     /* sass content block variable */
     @content
+  }
   
+  @if ($ie-support and $min <= $ie-support) {
+    .lt-ie9 { @content; }
   }
 }
